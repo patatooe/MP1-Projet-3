@@ -2,6 +2,10 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
+tdjtdtyd
+
 # Équation différentielle: d^2 u/dx^2=g(x) sur x=(a,b)
 # Conditions aux limites générales:
 # x=a: c1*du/dx+c2*u+c3=0
