@@ -78,14 +78,14 @@ plt.ylabel('$T_{eq}$(x) [$^o$C]')
 plt.show()
 
 Err=np.abs(Tmax[np.arange(0,Tmax.size,2)]-Tmax[np.arange(1,Tmax.size,2)]);
-"""plt.figure(2)
+plt.figure(2)
 plt.plot(L/Nar1,Err,'-or');
 plt.xscale('log')
 plt.yscale('log')
 plt.title('Erreur (N)')
 plt.xlabel('dx [m]')
 plt.ylabel('Err(dx)=|$T_{max}$(dx)-$T_{max}$(dx/2)|')
-plt.show()"""
+plt.show()
 
 plt.figure(3)
 plt.loglog(Nar,tInv,'o')
