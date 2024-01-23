@@ -17,7 +17,7 @@ k=1;h=1;
 
 # Condition convective (de Robin) à x=0 (face externe du mur): -k*dT/dx=h(Ta-T)
 Ta=-10; #[oC]
-Ti=-20;
+Ti=20;
 c1=-k; c2=h; c3=-h*Ta;
 # Condition de Neumann à x=L (face interne du mur): dT/dx=0 - flux net de chaleur est 0
 d1=k; d2=h; d3=-h*Ti;
@@ -53,7 +53,7 @@ for N in Nar:
     # La source est intégrée dans la partie intérieure du mur
     dL=0.05; 
     q=2000; # W/m^3;
-    S=q*np.exp(-((x-L)/dL)**2)
+    S=q/(1+((x-L)/dL)**2)
     
     # matrice pleine
     A=np.diag(-2*np.ones(N+1),0)+np.diag(np.ones(N),-1)+np.diag(np.ones(N),1);
@@ -78,14 +78,14 @@ plt.ylabel('$T_{eq}$(x) [$^o$C]')
 plt.show()
 
 Err=np.abs(Tmax[np.arange(0,Tmax.size,2)]-Tmax[np.arange(1,Tmax.size,2)]);
-plt.figure(2)
+"""plt.figure(2)
 plt.plot(L/Nar1,Err,'-or');
 plt.xscale('log')
 plt.yscale('log')
 plt.title('Erreur (N)')
 plt.xlabel('dx [m]')
 plt.ylabel('Err(dx)=|$T_{max}$(dx)-$T_{max}$(dx/2)|')
-plt.show()
+plt.show()"""
 
 plt.figure(3)
 plt.loglog(Nar,tInv,'o')
